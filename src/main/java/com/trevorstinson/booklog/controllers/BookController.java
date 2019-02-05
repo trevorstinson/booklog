@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class HelloController {
+public class BookController {
 
     @GetMapping(value = "")
     public String index(Model model) {
-        model.addAttribute("bookName", "The Name of the Wind");
+        model.addAttribute("bookTitle", "Dune");
+        model.addAttribute("bookAuthor", "Frank Herbert");
         return "index";
     }
 
