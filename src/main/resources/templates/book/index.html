@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
-    <title>Booklog</title>
+    <title th:text="${pageTitle}">Booklog</title>
 </head>
 <body>
 
     <div class="container mx-auto my-4 p-4">
-        <h1>Booklog</h1>
+        <h1 th:text="${pageTitle}">Booklog</h1>
 
-        <h2 th:text="${bookTitle}"></h2>
+        <p th:unless="${books} and ${books.size()}">The shelves are empty</p>
 
-        <p>by <span th:text="${bookAuthor}"></span></p>
+        <ul>
+            <li th:each="book : ${books}" th:text="${book.title}"></li>
+        </ul>
 
     </div>
 

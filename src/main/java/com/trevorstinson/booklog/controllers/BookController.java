@@ -18,9 +18,19 @@ public class BookController {
 
     @GetMapping(value = "")
     public String index(Model model) {
-        model.addAttribute("bookTitle", "Dune");
-        model.addAttribute("bookAuthor", "Frank Herbert");
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Booklog");
+
         return "book/index";
+    }
+
+    @GetMapping(value = "add")
+    public String displayAddBookForm(Model model) {
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Add Book");
+        return "book/add";
     }
 
     @GetMapping(value = "goodbye")
