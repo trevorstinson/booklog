@@ -6,6 +6,12 @@ public class Book {
     private String author;
     private Integer pageCount;
 
+    public Book(String title, String author, Integer pageCount) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -12,10 +12,13 @@
 
         <p th:unless="${books} and ${books.size()}">The shelves are empty</p>
 
-        <ul>
-            <li th:each="book : ${books}" th:text="${book.title}"></li>
+        <ul class="mt-4">
+            <li class="mt-1" th:each="book : ${books}">
+                <em th:text="${book.title}"></em> by <span th:text="${book.author}"></span> (<span th:text="${book.pageCount}"></span> pages)
+            </li>
         </ul>
 
+        <a href="/book/add" class="inline-block mt-4 p-2 rounded bg-grey-darkest hover:bg-grey-darker text-grey-lightest no-underline">Add Book</a>
     </div>
 
 </body>
