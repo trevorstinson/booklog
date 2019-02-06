@@ -42,7 +42,17 @@ public class BookController {
         Book newBook = new Book(bookTitle, bookAuthor, bookPageCount);
         books.add(newBook);
 
-        return "redirect:";
+        return "redirect:list";
+    }
+
+    // Path: /book/list
+    @GetMapping(value = "list")
+    public String showBookList(Model model) {
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Booklog");
+
+        return "book/list";
     }
 
     @GetMapping(value = "goodbye")
