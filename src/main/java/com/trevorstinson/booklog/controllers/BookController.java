@@ -1,6 +1,8 @@
 package com.trevorstinson.booklog.controllers;
 
 import com.trevorstinson.booklog.models.Book;
+import com.trevorstinson.booklog.models.data.BookDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,9 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("book")
 public class BookController {
+
+    @Autowired
+    private BookDao bookDao;
 
     static ArrayList<Book> books = new ArrayList<>();
 
