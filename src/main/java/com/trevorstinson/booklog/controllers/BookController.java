@@ -52,6 +52,14 @@ public class BookController {
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Booklog");
 
+        Integer pageTotal = 0;
+
+        for (Book book : books) {
+            pageTotal = pageTotal + book.getPageCount();
+        }
+
+        model.addAttribute("pageTotal", pageTotal);
+
         return "book/list";
     }
 
