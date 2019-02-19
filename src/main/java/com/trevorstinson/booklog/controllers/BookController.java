@@ -5,8 +5,10 @@ import com.trevorstinson.booklog.models.data.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 
@@ -33,6 +35,7 @@ public class BookController {
     @GetMapping(value = "add")
     public String displayAddBookForm(Model model) {
 
+        model.addAttribute(new Book());
         model.addAttribute("pageTitle", "Add Book");
 
         return "book/add";
@@ -40,12 +43,14 @@ public class BookController {
 
     @PostMapping(value = "add")
     public String processAddBookForm(Model model,
-                                     @RequestParam String bookTitle,
-                                     @RequestParam String bookAuthor,
-                                     @RequestParam Integer bookPageCount) {
+                                     @ModelAttribute @Valid Book book,
+                                     Errors errors) {
 
-        Book newBook = new Book(bookTitle, bookAuthor, bookPageCount);
-        books.add(newBook);
+        if (errors.hasErrors()) {
+            return "book/add";
+        }
+
+        bookDao.save(book);
 
         return "redirect:list";
     }
@@ -54,8 +59,8 @@ public class BookController {
     @GetMapping(value = "list")
     public String showBookList(Model model) {
 
-        model.addAttribute( "books", BookDao.findAll() );
-        model.addAttribute( "pageTitle", "Booklog" );
+        model.addAttribute("books", bookDao.findAll());
+        model.addAttribute("pageTitle", "Booklog");
 
         Integer pageTotal = 0;
 
@@ -63,7 +68,7 @@ public class BookController {
             pageTotal = pageTotal + book.getPageCount();
         }
 
-        model.addAttribute( "pageTotal", pageTotal );
+        model.addAttribute("pageTotal", pageTotal);
 
         return "book/list";
     }
