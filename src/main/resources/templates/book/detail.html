@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+    <title th:text="${pageTitle}">Booklog</title>
+</head>
+<body>
+
+<div class="container mx-auto my-4 p-4 bg-grey-lighter rounded-lg max-w-md">
+    <h1 class="m-4" th:text="${pageTitle}">Booklog</h1>
+
+    <div th:object="${book}" class="flex flex-col h-screen m-4 p-4 bg-white rounded-lg" action="" method="post">
+
+        <!--<div class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:text="*{title}">-->
+        <!--</div>-->
+        <div class="flex flex-col py-2 px-3 text-grey-darkest " th:text="*{author}">
+
+        </div>
+        <div class="flex flex-col py-2 px-3 text-grey-darkest " th:text="*{pageCount}"></div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

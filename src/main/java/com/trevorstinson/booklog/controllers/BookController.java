@@ -25,10 +25,23 @@ public class BookController {
     @GetMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("books", books);
-        model.addAttribute("pageTitle", "Booklog");
+//        model.addAttribute("books", books);
+//        model.addAttribute("pageTitle", "Booklog");
 
-        return "book/index";
+//        return "book/index";
+        return "redirect:book/list";
+    }
+
+    // Path /book/{id}
+    @GetMapping(value = "{bookId}")
+    public String viewBook(Model model, @PathVariable int bookId) {
+
+        Book book = bookDao.findById(bookId).orElse(null);
+        model.addAttribute("pageTitle", book.getTitle());
+
+        model.addAttribute("book", book);
+
+        return "book/detail";
     }
 
     // Path: /book/add
@@ -60,7 +73,7 @@ public class BookController {
     public String showBookList(Model model) {
 
         model.addAttribute("books", bookDao.findAll());
-        model.addAttribute("pageTitle", "Booklog");
+        model.addAttribute("pageTitle", "All Books");
 
         Integer pageTotal = 0;
 
