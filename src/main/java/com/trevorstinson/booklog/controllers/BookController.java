@@ -54,8 +54,8 @@ public class BookController {
     @GetMapping(value = "list")
     public String showBookList(Model model) {
 
-        model.addAttribute("books", books);
-        model.addAttribute("pageTitle", "Booklog");
+        model.addAttribute( "books", BookDao.findAll() );
+        model.addAttribute( "pageTitle", "Booklog" );
 
         Integer pageTotal = 0;
 
@@ -63,7 +63,7 @@ public class BookController {
             pageTotal = pageTotal + book.getPageCount();
         }
 
-        model.addAttribute("pageTotal", pageTotal);
+        model.addAttribute( "pageTotal", pageTotal );
 
         return "book/list";
     }
