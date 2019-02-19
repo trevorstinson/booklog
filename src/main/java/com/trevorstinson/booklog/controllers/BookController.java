@@ -64,7 +64,7 @@ public class BookController {
 
         Integer pageTotal = 0;
 
-        for (Book book : books) {
+        for (Book book : bookDao.findAll()) {
             pageTotal = pageTotal + book.getPageCount();
         }
 
