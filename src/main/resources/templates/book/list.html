@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-<header th:replace="fragments :: header"></header>
+    <header th:replace="fragments :: header"></header>
 
-    <div class="container mx-auto my-4 p-4">
+    <div class="container mx-auto my-4 p-4 flex-1">
         <h1 class="mb-4" th:text="${pageTitle}">Booklog</h1>
 
         <p th:unless="${books} and ${books.size()}">The shelves are empty</p>
@@ -15,14 +15,9 @@
                 <a th:href="${book.id}"><em th:text="${book.title}"></em></a> by <span th:text="${book.author}"></span> (<span th:text="${book.pageCount}"></span> pages)
             </li>
         </ul>
-
-        <p class="mt-4">
-            <strong>Total Pages:</strong>
-            <span th:text="${pageTotal}"></span>
-        </p>
-
-
     </div>
+
+    <footer th:replace="fragments :: footer"></footer>
 
 </body>
 </html>
