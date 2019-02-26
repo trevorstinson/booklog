@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<head th:replace="fragments :: header"></head>
+<header th:replace="fragments :: header"></header>
 
     <div class="container mx-auto my-4 p-4">
         <h1 class="mb-4" th:text="${pageTitle}">Booklog</h1>
@@ -12,7 +12,7 @@
 
         <ul class="mt-4">
             <li class="mt-1" th:each="book : ${books}">
-                <em th:text="${book.title}"></em> by <span th:text="${book.author}"></span> (<span th:text="${book.pageCount}"></span> pages)
+                <a th:href="${book.id}"><em th:text="${book.title}"></em></a> by <span th:text="${book.author}"></span> (<span th:text="${book.pageCount}"></span> pages)
             </li>
         </ul>
 
