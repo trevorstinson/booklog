@@ -86,4 +86,11 @@ public class BookController {
         return "book/list";
     }
 
+    @GetMapping(value = "search")
+    public String bookSearch(Model model) {
+
+        return "book/search";
+
+    }
+
 }
