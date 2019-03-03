@@ -86,10 +86,4 @@ public class BookController {
         return "book/list";
     }
 
-    @GetMapping(value = "goodbye")
-    @ResponseBody
-    public String goodbye() {
-        return "Goodbye Reader";
-    }
-
 }
