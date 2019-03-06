@@ -72,12 +72,14 @@ public class BookController {
     @GetMapping(value = "list")
     public String showBookList(Model model) {
 
-        model.addAttribute("books", bookDao.findAll());
+        Iterable<Book> books = bookDao.findAll();
+
+        model.addAttribute("books", books);
         model.addAttribute("pageTitle", "All Books");
 
         Integer pageTotal = 0;
 
-        for (Book book : bookDao.findAll()) {
+        for (Book book : books) {
             pageTotal = pageTotal + book.getPageCount();
         }
 
