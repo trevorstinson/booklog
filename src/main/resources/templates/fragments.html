@@ -21,6 +21,10 @@
     </div>
 </header>
 
+<div th:fragment="flash" th:if="${flash != null}" class="bg-red-lighter text-red-dark">
+    <div th:text="${flash.message}"></div>
+</div>
+
 <footer class="bg-grey-darkest text-grey-lightest p-12">
     <div class="container mx-auto">
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="flex flex-col h-screen bg-grey-lighter">
+
+    <header th:replace="fragments :: header"></header>
+
+    <div class="container mx-auto max-w-sm flex-1 md:flex md:flex-col md:justify-center ">
+
+
+        <form th:action="@{/login}" th:object="${user}" method="post" class="bg-grey-lightest p-4 h-full md:h-auto md:rounded-lg">
+            <h1 class="mb-4">Log in</h1>
+
+            <div th:replace="fragments :: flash"></div>
+            <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+
+            <label th:for="username" class="my-2 text-grey-darke block">Username</label>
+            <input th:field="*{username}" placeholder="your username" class="w-full mb-4 p-4 rounded" />
+
+            <label th:for="password" class="my-2 text-grey-darkest block">Password</label>
+            <input type="password" th:field="*{password}" placeholder="your password" class="w-full mb-8 p-4 rounded text-red" />
+
+            <button type="submit" class="w-full bg-blue text-blue-lightest p-4 uppercase hover:bg-blue-dark rounded">Login</button>
+
+        </form>
+
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+
+</body>
+</html>
