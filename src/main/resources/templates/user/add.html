@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+    <header th:replace="fragments :: header"></header>
+
+    <div class="container mx-auto my-4 p-4 bg-grey-lighter rounded-lg max-w-md">
+
+        <form th:object="${user}" class="flex flex-col h-screen m-4 p-4 bg-white rounded-lg" action="" method="post">
+
+            <h2 class="m-4" th:text="${pageTitle}">Create New User</h2>
+
+            <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="username">
+                Username
+                <input class="border mt-1 pt-3 px-3 pb-2 text-grey-darkest" type="text" th:field="*{username}" />
+            </label>
+            <div th:errors="*{username}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
+
+
+            <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="password">
+                Password
+                <input class="border mt-1 py-2 px-3 text-grey-darkest" type="text" th:field="*{password}" />
+            </label>
+            <div th:errors="*{password}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
+
+            <input class="border rounded m-2 py-2 px-4 bg-grey-darkest hover:bg-grey-darker text-grey-lightest rounded" type="submit" value="Add a Book" />
+        </form>
+
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+
+</body>
+</html>
