@@ -9,16 +9,19 @@
 </head>
 <body>
 
-<header th:fragment="header" class="bg-grey pt-3 pb-2">
-    <div class="container mx-auto flex items-center justify-between">
-        <h1 class="text-grey-darkest">Booklog</h1>
-        <nav>
-            <ul class="flex list-reset ml-20">
-                <li><a class="no-underline text-grey-darkest hover:bg-grey-light py-2 px-3 rounded-sm" href="/book/list">List</a></li>
-                <li><a class="no-underline text-grey-darkest hover:bg-grey-light py-2 px-3 rounded-sm" href="/book/add">Add</a></li></li>
+<header th:fragment="header" class="bg-orange-dark text-white w-1/4 py-16 pr-16 flex flex-col items-end">
+    <!--<div class="flex flex-col">-->
+        <h1 class="uppercase tracking-wide font-thin pr-2"><a href="/" class="text-white no-underline">Booklog</a></h1>
+        <nav class="w-full">
+            <ul class="flex flex-col list-reset items-end w-full">
+                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/list">All Books</a></li>
+
+                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/add">Add Book</a></li></li>
+
+                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/add">Search Books</a></li></li>
             </ul>
         </nav>
-    </div>
+    <!--</div>-->
 </header>
 
 <footer class="bg-grey-darkest text-grey-lightest p-12">
