@@ -30,17 +30,30 @@
             </label>
             <div th:errors="*{pageCount}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
 
-        <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="isbn_10">
+            <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="isbn_10">
                 ISBN-10
                 <input class="border mt-1 py-2 px-3 text-grey-darkest" type="text" th:field="*{isbn_10}" />
             </label>
             <div th:errors="*{isbn_10}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
 
-        <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="isbn_13">
+            <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="isbn_13">
                 ISBN-13
                 <input class="border mt-1 py-2 px-3 text-grey-darkest" type="text" th:field="*{isbn_13}" />
             </label>
             <div th:errors="*{isbn_13}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
+
+            <label class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:for="status">
+                Status
+
+                <select th:field="*{status}" class="border mt-1 py-2 px-3 text-grey-darkest">
+                    <option th:each="bookStatus : ${bookStatuses}"
+                            th:text="${bookStatus.name}"
+                            th:value="${bookStatus}"></option>
+                </select>
+
+
+            </label>
+            <div th:errors="*{status}" class="mx-3 my-1 bg-red-lightest text-red p-2 text-sm"></div>
 
 
             <input class="border rounded m-2 py-2 px-4 bg-grey-darkest hover:bg-grey-darker text-grey-lightest rounded" type="submit" value="Add a Book" />

@@ -31,18 +31,28 @@ public class Book {
     @Size(min=13, max=13)
     private String isbn_13;
 
+    @NotNull
+    public BookStatus status;
+
 
     public Book() {}
 
-    public Book(String title, String author, Integer pageCount, String isbn_10, String isbn_13) {
+
+    public Book(String title,
+                String author,
+                Integer pageCount,
+                String isbn_10,
+                String isbn_13,
+                BookStatus status) {
+
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
         this.isbn_10 = isbn_10;
         this.isbn_13 = isbn_13;
+        this.status = status;
+
     }
-
-
 
     public int getId() {
         return id;
@@ -86,5 +96,13 @@ public class Book {
 
     public void setIsbn_13(String isbn_13) {
         this.isbn_13 = isbn_13;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookStatus status) {
+        this.status = status;
     }
 }

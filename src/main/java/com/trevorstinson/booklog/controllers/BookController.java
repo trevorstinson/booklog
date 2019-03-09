@@ -1,6 +1,7 @@
 package com.trevorstinson.booklog.controllers;
 
 import com.trevorstinson.booklog.models.Book;
+import com.trevorstinson.booklog.models.BookStatus;
 import com.trevorstinson.booklog.models.data.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,7 @@ public class BookController {
     public String displayAddBookForm(Model model) {
 
         model.addAttribute(new Book());
+        model.addAttribute("bookStatuses", BookStatus.values());
         model.addAttribute("pageTitle", "Add Book");
 
         return "book/add";
@@ -58,6 +60,8 @@ public class BookController {
     public String processAddBookForm(Model model,
                                      @ModelAttribute @Valid Book book,
                                      Errors errors) {
+
+        model.addAttribute("bookStatuses", BookStatus.values());
 
         if (errors.hasErrors()) {
             return "book/add";
