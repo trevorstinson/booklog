@@ -2,9 +2,9 @@ package com.trevorstinson.booklog.models;
 
 public enum BookStatus {
 
+    INTERESTED ("Interested"),
     READING ("Reading Now"),
     FINISHED ("Finished"),
-    INTERESTED ("Interested"),
     INACTIVE  ("Inactive");
 
     private final String name;
