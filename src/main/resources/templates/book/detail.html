@@ -23,7 +23,9 @@
 
             <p class="mt-4 leading-normal">Here is the novel that will be forever considered a triumph of imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family - and would bring to fruition humankind's most ancient and unattainable dream.</p>
 
-            <!--<div class="mt-8" th:text="*{pageCount}"></div>-->
+            <a th:href="'edit/' + ${book.id}"
+               class="inline-block text-center bg-orange hover:bg-orange-dark text-white py-4 px-8 rounded text-lg font-bold no-underline mt-12"
+                >Reading Now</a>
 
             <table class="border-collapse mt-16 font-bold uppercase text-sm">
                 <tr class="border-t border-grey-light">
@@ -48,9 +50,9 @@
                      class="w-full"
                 />
 
-                <a th:href="'edit/' + ${book.id}" class="block w-full text-center bg-white hover:bg-green text-green hover:text-white py-3 rounded text-sm font-bold no-underline border border-green mt-4">Edit</a>
+                <a th:href="'edit/' + ${book.id}" class="block text-center bg-white hover:bg-green text-green hover:text-white py-3 rounded text-sm font-bold no-underline border border-green mt-4">Edit</a>
 
-                <a th:href="'remove/' + ${book.id}" class="block w-full text-center hover:bg-red text-red hover:text-white py-3 rounded text-sm font-bold hover:no-underline mt-2">Remove</a>
+                <a th:href="'remove/' + ${book.id}" class="block text-center hover:bg-red text-red hover:text-white py-3 rounded text-sm font-bold hover:no-underline mt-2">Remove</a>
             </div>
 
         </div>
