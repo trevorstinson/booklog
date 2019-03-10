@@ -70,7 +70,7 @@ public class BookController {
 
         bookDao.save(book);
 
-        return "redirect:list";
+        return "redirect:book/{book.id}";
     }
 
     @GetMapping(value = "/remove/{bookId}")

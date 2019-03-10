@@ -4,7 +4,8 @@ let app = new Vue({
     data: {
         books: {},
         bookQuery: "",
-        searchResults: []
+        searchResults: [],
+        showAddBookForm: false,
     },
 
     mounted() {
@@ -20,8 +21,14 @@ let app = new Vue({
     methods: {
         searchBook() {
             axios
-                .get("http://openlibrary.org/search.json?title=" + this.bookQuery)
+                .get("http://openlibrary.org/search.json?jscmd=data&title=" + this.bookQuery)
                 .then(response => (this.searchResults = response.data.docs));
-        }
+        },
+//        injectBookData() {
+//            axios
+//                .get("https://openlibrary.org/api/books?bibkeys=ISBN:"0201558025,LCCN:93005405&format=json")
+//
+//
+//        }
     }
 });
