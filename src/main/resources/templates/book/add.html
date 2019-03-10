@@ -143,26 +143,19 @@
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="status">
                         Status
                     </label>
-                    <select th:field="*{status}"
-                            class="relative block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded focus:outline-none focus:border-orange">
-                        <option th:each="bookStatus : ${bookStatuses}"
-                                th:text="${bookStatus.name}"
-                                th:value="${bookStatus}"></option>
-                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darkest">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                    </select>
-
-                    <div class="inline-block relative w-64">
-                        <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                            <option>Really long option that will likely overlap the chevron</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
+                    <div class="relative">
+                        <select th:field="*{status}"
+                                class="relative block appearance-none w-full bg-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange">
+                            <option th:each="bookStatus : ${bookStatuses}"
+                                    th:text="${bookStatus.name}"
+                                    th:value="${bookStatus}"
+                                    class="p-4"></option>
                         </select>
-                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-3 text-grey-darker">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                         </div>
                     </div>
+
                     <div th:errors="*{status}" class="text-red text-sm mb-2 mt-4"></div>
                 </div>
                 </div>
