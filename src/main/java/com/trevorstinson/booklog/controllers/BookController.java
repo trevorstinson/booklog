@@ -73,6 +73,16 @@ public class BookController {
         return "redirect:list";
     }
 
+    @GetMapping(value = "/remove/{bookId}")
+    public String removeBook(Model model, @PathVariable int bookId) {
+
+        Book book = bookDao.findById(bookId).orElse(null);
+
+        bookDao.delete(book);
+
+        return "redirect:/book/list";
+    }
+
     // Path: /book/list
     @GetMapping(value = "list")
     public String showBookList(Model model) {
