@@ -6,7 +6,8 @@
 <header th:replace="fragments :: header"></header>
 
 <div id="root" class="container mx-auto my-4 p-4 flex-1">
-    <h2>Search</h2><form action="">
+    <h1 th:replace="fragments :: pageTitle"></h1>
+    <form action="">
     <input v-model="bookQuery" placeholder="Ender's Game" @keyup.space="searchBook" />
     <input type="button" value="Search" @click="searchBook" />
 

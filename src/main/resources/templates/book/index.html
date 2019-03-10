@@ -6,7 +6,7 @@
 <header th:replace="fragments :: header"></header>
 
     <div class="container mx-auto my-4 p-4">
-        <h1 class="mb-4" th:text="${pageTitle}">Booklog</h1>
+        <h1 th:replace="fragments :: pageTitle"></h1>
 
         <p th:unless="${books} and ${books.size()}">The shelves are empty</p>
 

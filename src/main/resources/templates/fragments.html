@@ -10,17 +10,19 @@
 <body>
 
 <header th:fragment="header" class="w-1/4 flex flex-col bg-orange-dark text-white">
-        <h1 class="w-full text-right text-5xl uppercase font-thin"><a href="/" class="inline-block w-full px-16 pt-16 pb-4 text-white hover:bg-orange no-underline">Booklog</a></h1>
+        <h1 class="w-full text-right text-5xl font-thin tracking-wide"><a href="/" class="inline-block w-full px-16 pt-16 pb-4 text-white hover:bg-orange no-underline">Booklog</a></h1>
         <nav class="">
             <ul class="flex flex-col list-reset ">
-                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/list">All Books</a></li>
+                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/list">Library</a></li>
 
-                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/add">Add Book</a></li></li>
+                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/add">Add</a></li></li>
 
-                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/add">Search Books</a></li></li>
+                <!--<li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/add">Search</a></li></li>-->
             </ul>
         </nav>
 </header>
+
+<h1 th:fragment="pageTitle" class="text-5xl font-thin capitalize tracking-wide pb-8" th:text="${pageTitle}">Booklog</h1>
 
 <footer class="bg-grey-darkest text-grey-lightest p-12">
     <div class="container mx-auto">

@@ -8,7 +8,7 @@
     <div class="w-3/4 p-16">
         <div class="max-w-md">
 
-        <h1 class="w-full text-5xl uppercase font-thin pb-8" th:text="${pageTitle}">Booklog</h1>
+        <h1 th:replace="fragments :: pageTitle"></h1>
 
 
             <form th:object="${book}" class="" action="" method="post">

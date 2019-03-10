@@ -6,7 +6,7 @@
 <header th:replace="fragments :: header"></header>
 
 <div class="container mx-auto my-4 p-4 bg-grey-lighter rounded-lg max-w-md">
-    <h1 class="m-4" th:text="${pageTitle}">Booklog</h1>
+    <h1 th:replace="fragments :: pageTitle"></h1>
 
     <div th:object="${book}" class="flex flex-col h-screen m-4 p-4 bg-white rounded-lg" action="" method="post">
 
