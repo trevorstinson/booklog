@@ -24,21 +24,24 @@
             <p class="mt-8 leading-normal">Here is the novel that will be forever considered a triumph of imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family - and would bring to fruition humankind's most ancient and unattainable dream.</p>
 
             <a th:href="'edit/' + ${book.id}"
-               class="inline-block text-center bg-orange hover:bg-orange-dark text-white py-4 px-8 rounded text-lg font-bold no-underline mt-12"
+               class="inline-block text-center bg-orange hover:bg-orange-dark text-white py-3 px-6 rounded font-bold no-underline mt-12 shadow"
                 >Reading Now</a>
 
-            <table class="border-collapse mt-16 font-bold uppercase">
-                <tr class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark">Pages</th>
-                    <td class="p-5 text-grey-darkest" th:text="*{pageCount}"></td>
+            <table class="border-collapse mt-16 uppercase">
+                <tr th:unless="*{pageCount == ''}"
+                    class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark text-sm">Pages</th>
+                    <td class="p-5 pl-0 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>
                 </tr>
-                <tr class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark">ISBN-10</th>
-                    <td class="p-5 text-grey-darkest" th:text="*{isbn_10}"></td>
+                <tr th:unless="*{isbn_10 == ''}"
+                    class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark text-sm">ISBN-10</th>
+                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn_10}"></td>
                 </tr>
-                <tr class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark">ISBN-13</th>
-                    <td class="p-5 text-grey-darkest" th:text="*{isbn_13}"></td>
+                <tr th:unless="*{isbn_13 == ''}"
+                    class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark text-sm">ISBN-13</th>
+                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn_13}"></td>
                 </tr>
             </table>
 
