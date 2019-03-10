@@ -38,9 +38,9 @@ public class BookController {
     public String viewBook(Model model, @PathVariable int bookId) {
 
         Book book = bookDao.findById(bookId).orElse(null);
-        model.addAttribute("pageTitle", book.getTitle());
 
         model.addAttribute("book", book);
+        model.addAttribute("pageTitle", book.getTitle());
 
         return "book/detail";
     }

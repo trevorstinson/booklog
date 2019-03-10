@@ -5,20 +5,57 @@
 
 <header th:replace="fragments :: header"></header>
 
-<div class="container mx-auto my-4 p-4 bg-grey-lighter rounded-lg max-w-md">
-    <h1 th:replace="fragments :: pageTitle"></h1>
+<div class="w-3/4 p-16">
 
-    <div th:object="${book}" class="flex flex-col h-screen m-4 p-4 bg-white rounded-lg" action="" method="post">
+    <!--<div class="max-w-lg">-->
 
-        <!--<div class="flex flex-col py-2 px-3 text-grey-darkest uppercase" th:text="*{title}">-->
-        <!--</div>-->
-        <div class="flex flex-col py-2 px-3 text-grey-darkest " th:text="*{author}">
+
+        <div th:object="${book}" class="flex">
+
+            <div class="max-w-sm mr-16">
+
+            <h1 th:replace="fragments :: pageTitle"></h1>
+
+            <a th:href="'/author/' + ${book.author}"
+               th:text="*{author}"
+               class="block no-underline hover:underline text-2xl -mt-6 text-grey-darker"></a>
+
+
+            <p class="mt-4 leading-normal">Here is the novel that will be forever considered a triumph of imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family - and would bring to fruition humankind's most ancient and unattainable dream.</p>
+
+            <!--<div class="mt-8" th:text="*{pageCount}"></div>-->
+
+            <table class="border-collapse mt-16 font-bold uppercase text-sm">
+                <tr class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark">Pages</th>
+                    <td class="p-5 text-grey-darkest" th:text="*{pageCount}"></td>
+                </tr>
+                <tr class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark">ISBN-10</th>
+                    <td class="p-5 text-grey-darkest" th:text="*{isbn_10}"></td>
+                </tr>
+                <tr class="border-t border-grey-light">
+                    <th class="p-5 text-grey-dark">ISBN-13</th>
+                    <td class="p-5 text-grey-darkest" th:text="*{isbn_13}"></td>
+                </tr>
+            </table>
+
+
+            </div>
+
+            <div class="w-64">
+                <img th:src="'http://covers.openlibrary.org/b/isbn/' + *{isbn_10} + '-L.jpg'" th:alt="'Cover art for ' + *{title} + ' by ' + *{author}"
+                     class="w-full"
+                />
+
+                <a th:href="'edit/' + ${book.id}" class="block w-full text-center bg-white hover:bg-green text-green hover:text-white py-3 rounded text-sm font-bold no-underline border border-green mt-4">Edit</a>
+
+                <a th:href="'remove/' + ${book.id}" class="block w-full text-center hover:bg-red text-red hover:text-white py-3 rounded text-sm font-bold hover:no-underline mt-2">Remove</a>
+            </div>
 
         </div>
-        <div class="flex flex-col py-2 px-3 text-grey-darkest " th:text="*{pageCount}"></div>
 
-
-    </div>
+    <!--</div>-->
 
 </div>
 
