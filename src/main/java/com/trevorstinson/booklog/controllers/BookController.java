@@ -90,7 +90,7 @@ public class BookController {
 
         model.addAttribute("pageTotal", pageTotal);
 
-        return "book/list";
+        return "book/table";
     }
 
     @GetMapping(value = "search")
