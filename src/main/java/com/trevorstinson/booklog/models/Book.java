@@ -16,19 +16,19 @@ public class Book {
     private int id;
 
     @NotNull
-    @Size(min=1, max=25)
+    @Size(min=1, max=75)
     private String title;
 
     @NotNull
-    @Size(min=1, max=25)
+    @Size(min=1, max=75)
     private String author;
 
     private Integer pageCount;
 
-    @Size(min=10, max=10)
+//    @Size(min=10, max=10)
     private String isbn_10;
 
-    @Size(min=13, max=13)
+//    @Size(min=13, max=13)
     private String isbn_13;
 
     @NotNull
