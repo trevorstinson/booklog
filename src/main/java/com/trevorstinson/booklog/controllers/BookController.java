@@ -62,6 +62,7 @@ public class BookController {
                                      Errors errors) {
 
         model.addAttribute("bookStatuses", BookStatus.values());
+        model.addAttribute("pageTitle", "Add Book");
 
         if (errors.hasErrors()) {
             return "book/add";

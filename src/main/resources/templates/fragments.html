@@ -9,19 +9,17 @@
 </head>
 <body>
 
-<header th:fragment="header" class="bg-orange-dark text-white w-1/4 py-16 pr-16 flex flex-col items-end">
-    <!--<div class="flex flex-col">-->
-        <h1 class="uppercase tracking-wide font-thin pr-2"><a href="/" class="text-white no-underline">Booklog</a></h1>
-        <nav class="w-full">
-            <ul class="flex flex-col list-reset items-end w-full">
-                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/list">All Books</a></li>
+<header th:fragment="header" class="w-1/4 flex flex-col bg-orange-dark text-white">
+        <h1 class="w-full text-right text-5xl uppercase font-thin"><a href="/" class="inline-block w-full px-16 pt-16 pb-4 text-white hover:bg-orange no-underline">Booklog</a></h1>
+        <nav class="">
+            <ul class="flex flex-col list-reset ">
+                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/list">All Books</a></li>
 
-                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/add">Add Book</a></li></li>
+                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/add">Add Book</a></li></li>
 
-                <li class="mt-8"><a class="text-orange-lightest hover:text-white border-r-4 border-transparent hover:border-white no-underline pr-2 font-bold lowercase" href="/book/add">Search Books</a></li></li>
+                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4" href="/book/add">Search Books</a></li></li>
             </ul>
         </nav>
-    <!--</div>-->
 </header>
 
 <footer class="bg-grey-darkest text-grey-lightest p-12">
