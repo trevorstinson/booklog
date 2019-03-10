@@ -38,15 +38,18 @@
                     </td>
                     <td class="py-5 px-6 text-right">
                         <a th:href="'remove/' + ${book.id}" class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline mr-2">Remove</a>
+                        <!--<a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-grey-darker text-grey-darker hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-grey-darker mr-1">Edit</a>-->
+
+                        <!--<a th:href="'remove/' + ${book.id}" class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline mr-2">Remove</a>-->
                         <a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-green text-green hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-green mr-1">Edit</a>
-                        <a th:href="${book.id}" class="bg-white hover:bg-blue text-blue hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-blue">View</a>
+                        <!--<a th:href="${book.id}" class="bg-white hover:bg-blue text-blue hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-blue">View</a>-->
                     </td>
                 </tr>
                 </tbody>
                 <tfooter>
                     <tr class="border-grey-light">
                         <td class="py-4 px-6 text-right font-bold " colspan="3">
-                            <span class="uppercase text-sm text-grey-dark mr-1">Total Pages:</span> <span th:text="${pageTotal}" class="text-2xl"></span></td>
+                            <span class="uppercase text-sm text-grey-dark mr-1">Total Pages</span> <span th:text="${pageTotal}" class="text-2xl"></span></td>
                         <td class="py-4 px-6 text-right">
                             <a href="/book/add" class="bg-white hover:bg-orange text-orange hover:text-white py-2 px-3 rounded text-sm font-bold no-underline border border-orange">Add a Book</a>
                         </td>
