@@ -33,15 +33,10 @@
                     <th class="p-5 text-grey-dark text-sm">Pages</th>
                     <td class="p-5 pl-0 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>
                 </tr>
-                <tr th:unless="*{isbn_10 == ''}"
+                <tr th:unless="*{isbn == ''}"
                     class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark text-sm">ISBN-10</th>
-                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn_10}"></td>
-                </tr>
-                <tr th:unless="*{isbn_13 == ''}"
-                    class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark text-sm">ISBN-13</th>
-                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn_13}"></td>
+                    <th class="p-5 text-grey-dark text-sm">ISBN</th>
+                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn}"></td>
                 </tr>
             </table>
 
@@ -50,11 +45,11 @@
 
             <div class="w-48">
 
-                <img th:unless="*{isbn_10 == ''}" th:src="'http://covers.openlibrary.org/b/isbn/' + *{isbn_10} + '-L.jpg'" th:alt="'Cover art for ' + *{title} + ' by ' + *{author}"
+                <img th:unless="*{isbn == ''}" th:src="'http://covers.openlibrary.org/b/isbn/' + *{isbn} + '-L.jpg'" th:alt="'Cover art for ' + *{title} + ' by ' + *{author}"
                      class="w-full h-auto"
                 />
 
-                <div th:if="*{isbn_10 == ''}"
+                <div th:if="*{isbn == ''}"
                      class="h-64 w-48 mx-auto bg-orange-darkest border-8 border-red-darkest border-box shadow-md text-center flex flex-col justify-between pt-12 pb-4 px-4 text-orange-lightest">
                     <p class="m-0 text-sm font-normal" th:text="*{title}"></p>
                     <p class="m-0 text-xs font-thin" th:text="*{author}"></p>

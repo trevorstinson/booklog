@@ -23,6 +23,7 @@ let app = new Vue({
             axios
                 .get("http://openlibrary.org/search.json?jscmd=data&title=" + this.bookQuery)
                 .then(response => (this.searchResults = response.data.docs));
+
         },
 //        injectBookData() {
 //            axios

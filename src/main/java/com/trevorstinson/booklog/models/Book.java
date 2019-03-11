@@ -25,11 +25,8 @@ public class Book {
 
     private Integer pageCount;
 
-//    @Size(min=10, max=10)
-    private String isbn_10;
-
-//    @Size(min=13, max=13)
-    private String isbn_13;
+    @Size(min=10, max=13)
+    private String isbn;
 
     @NotNull
     public BookStatus status;
@@ -41,15 +38,13 @@ public class Book {
     public Book(String title,
                 String author,
                 Integer pageCount,
-                String isbn_10,
-                String isbn_13,
+                String isbn,
                 BookStatus status) {
 
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
-        this.isbn_10 = isbn_10;
-        this.isbn_13 = isbn_13;
+        this.isbn = isbn;
         this.status = status;
 
     }
@@ -82,20 +77,12 @@ public class Book {
         this.pageCount = pageCount;
     }
 
-    public String getIsbn_10() {
-        return isbn_10;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setIsbn_10(String isbn_10) {
-        this.isbn_10 = isbn_10;
-    }
-
-    public String getIsbn_13() {
-        return isbn_13;
-    }
-
-    public void setIsbn_13(String isbn_13) {
-        this.isbn_13 = isbn_13;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public BookStatus getStatus() {

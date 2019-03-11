@@ -112,7 +112,7 @@
                             <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded"
                                     @click="injectBookData">Add Book</button>
                             <button class="text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange"
-                                    @click="viewEditions">Editions</button>
+                                    >Editions</button>
                         </div>
                     </div>
                 </li>
@@ -162,7 +162,8 @@
                         Title
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
-                           type="text" th:field="*{title}" />
+                           type="text" th:field="*{title}"
+                           tabindex="2" />
                     <div th:errors="*{title}" class="text-red text-sm mb-2"></div>
 
             <!-- Author -->
@@ -170,40 +171,29 @@
                         Author
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
-                           type="text" th:field="*{author}" />
+                           type="text" th:field="*{author}" tabindex="3"/>
                     <div th:errors="*{author}" class="text-red text-sm mb-2"></div>
 
             <!--Flex row -->
                 <div class="flex">
 
-                <!-- ISBN-10 -->
+                <!-- ISBN -->
                     <div class="w-1/2 mr-8">
-                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn_10">
-                            ISBN-10
+                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn">
+                            ISBN
                         </label>
-                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn_10}" />
-                        <div th:errors="*{isbn_10}" class="text-red text-sm mb-2"></div>
+                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn}" tabindex="4"/>
+                        <div th:errors="*{isbn}" class="text-red text-sm mb-2"></div>
                     </div>
 
-                <!-- ISBN-13 -->
-                    <div class="w-1/2">
-                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn_13">
-                            ISBN-13
-                        </label>
-                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn_13}" />
-                        <div th:errors="*{isbn_13}" class="text-red text-sm mb-2"></div>
-                    </div>
-                </div>
 
-            <!--Flex row -->
-                <div class="flex">
 
             <!-- Page Count -->
                 <div class="w-1/2 mr-8">
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="pageCount">
                         Pages
                     </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" />
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" tabindex="5"/>
                     <div th:errors="*{pageCount}" class="text-red text-sm mb-2"></div>
                 </div>
 
@@ -214,7 +204,8 @@
                     </label>
                     <div class="relative">
                         <select th:field="*{status}"
-                                class="relative block appearance-none w-full bg-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange">
+                                class="relative block appearance-none w-full bg-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                        tabindex="6">
                             <option th:each="bookStatus : ${bookStatuses}"
                                     th:text="${bookStatus.name}"
                                     th:value="${bookStatus}"
@@ -230,7 +221,7 @@
                 </div>
 
 
-                <input class="bg-orange hover:bg-orange-dark text-white py-3 px-4 rounded font-bold float-right mt-5 text-xl shadow hover:shadow-md" type="submit" value="Add Book" />
+                <input class="bg-orange hover:bg-orange-dark text-white py-3 px-4 rounded font-bold float-right mt-5 text-xl shadow hover:shadow-md" type="submit" value="Add Book" tabindex="7" />
             </form>
         </div>
     </div>
