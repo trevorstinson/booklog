@@ -5,7 +5,7 @@ let app = new Vue({
         books: {},
         bookQuery: "",
         searchResults: [],
-        showAddBookForm: false,
+        showAddBookForm: true,
     },
 
     mounted() {
@@ -23,6 +23,8 @@ let app = new Vue({
             axios
                 .get("http://openlibrary.org/search.json?jscmd=data&title=" + this.bookQuery)
                 .then(response => (this.searchResults = response.data.docs));
+
+            this.showAddBookForm = false;
 
         },
 //        injectBookData() {

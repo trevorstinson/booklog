@@ -69,8 +69,10 @@ public class BookController {
         }
 
         bookDao.save(book);
+        model.addAttribute("bookId", book.getId());
 
-        return "redirect:book/{book.id}";
+//        return "redirect:book/{bookId}";
+        return "redirect:/book/list";
     }
 
     @GetMapping(value = "/remove/{bookId}")

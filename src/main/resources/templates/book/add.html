@@ -13,6 +13,7 @@
             <div id="root" class="">
 
                 <!--<form action="">-->
+                <!--<div class="flex justify-between">-->
 
                     <form class="w-2/3" @submit.prevent="searchBook">
                         <div class="flex items-center">
@@ -27,69 +28,88 @@
                         </div>
                     </form>
 
+                    <!--<button class="text-orange py-3 px-4 hover:underline focus:outline-none" @click="showAddBookForm = !showAddBookForm">-->
+                        <!--Manual Entry-->
+                    <!--</button>-->
+                <!--</div>-->
 
-                    <!--<input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3"-->
-                           <!--type="text"-->
 
-                           <!--v-model="bookQuery"-->
-                           <!--placeholder="Search for a book…"/>-->
-                    <!--<input v-model="bookQuery" placeholder="Ender's Game" @keyup.space="searchBook" />-->
-                    <!--<input type="button" value="Search" @click="searchBook" />-->
+                <!-- addBookForm -->
+                <form th:object="${book}"
+                      class="mt-16"
+                      action=""
+                      method="post"
+                      v-show="showAddBookForm"
+                        v-cloak>
+                    <!-- Title -->
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-6" th:for="title">
+                        Title
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                           type="text" th:field="*{title}"
+                           tabindex="2" />
+                    <div th:errors="*{title}" class="text-red text-sm mb-2"></div>
 
-                    <!--<p>searching for: <span v-text="bookQuery"></span></p>-->
+                    <!-- Author -->
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-6" th:for="author">
+                        Author
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                           type="text" th:field="*{author}" tabindex="3"/>
+                    <div th:errors="*{author}" class="text-red text-sm mb-2"></div>
 
-                <!--<ul class="list-reset">-->
-                    <!--<li class="flex mt-12 shadow-md p-4 w-1/2">-->
+                    <!--Flex row -->
+                    <div class="flex">
 
-                        <!--<img src="http://covers.openlibrary.org/b/isbn/0-312-93208-1-M.jpg"-->
-                             <!--alt="book cover"-->
-                             <!--class="h-32 w-auto"-->
-                        <!--/>-->
-
-                        <!--<div class="flex-1 ml-4 flex flex-col justify-between">-->
-                            <!--<div>-->
-                                <!--<h2 class="text-base font-normal">Harry Potter and the Chamber of Secrets</h2>-->
-                                <!--<h3 class="text-sm text-grey-darker font-thin mt-2">Orson Scott Card</h3>-->
-                            <!--</div>-->
-                            <!--<div>-->
-                                <!--<button class="text-sm bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded">Add Book</button>-->
-                                <!--<button class="text-sm text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange">Editions</button>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                <!--</ul>-->
-
-                    <!--<ul v-for="result in searchResults"-->
-                        <!--class="list-reset">-->
-                        <!--<li class="flex mt-12 shadow-md p-4 w-1/2">-->
-
-                            <!--<div class="flex-1 mr-12">-->
-                                <!--<h2 v-text="result.title"-->
-                                    <!--class="text-xl font-normal"></h2>-->
-                                <!--<h3 v-if="result.author_name" v-text="result.author_name[0]"-->
-                                    <!--class="text-lg text-grey-darker font-thin mt-2"></h3>-->
-                                <!--&lt;!&ndash;<p v-if="result.first_sentence" v-text="result.first_sentence[0]"></p>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<p v-if="result.number_of_pages" v-text="result.number_of_pages"></p>&ndash;&gt;-->
-
-                                <!--<button class="bg-orange hover:bg-orange-dark text-white font-bold py-3 px-4 rounded mt-4"-->
-                                        <!--@click="injectBookData">-->
-                                    <!--Add Book-->
-                                <!--</button>-->
-                            <!--</div>-->
+                        <!-- ISBN -->
+                        <div class="w-1/2 mr-8">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn">
+                                ISBN
+                            </label>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn}" tabindex="4"/>
+                            <div th:errors="*{isbn}" class="text-red text-sm mb-2"></div>
+                        </div>
 
 
 
-                            <!--<div class="w-48 text-right">-->
-                                <!--<img v-if="result.isbn"-->
-                                     <!--:src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-M.jpg'"-->
-                                     <!--alt="book cover"-->
-                                     <!--class="h-32 w-auto"-->
-                                <!--/>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+                        <!-- Page Count -->
+                        <div class="w-1/2 mr-8">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="pageCount">
+                                Pages
+                            </label>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" tabindex="5"/>
+                            <div th:errors="*{pageCount}" class="text-red text-sm mb-2"></div>
+                        </div>
 
-            <ul class="list-reset">
+                        <!-- Status -->
+                        <div class="w-1/2">
+                            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="status">
+                                Status
+                            </label>
+                            <div class="relative">
+                                <select th:field="*{status}"
+                                        class="relative block appearance-none w-full bg-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                                        tabindex="6">
+                                    <option th:each="bookStatus : ${bookStatuses}"
+                                            th:text="${bookStatus.name}"
+                                            th:value="${bookStatus}"
+                                            class="p-4"></option>
+                                </select>
+                                <div class="pointer-events-none absolute pin-y pin-r flex items-center px-3 text-grey-darker">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+
+                            <div th:errors="*{status}" class="text-red text-sm mb-2 mt-4"></div>
+                        </div>
+                    </div>
+
+
+                    <input class="bg-orange hover:bg-orange-dark text-white py-3 px-4 rounded font-bold float-right mt-5 text-xl shadow hover:shadow-md" type="submit" value="Add Book" tabindex="7" />
+                </form>
+
+
+            <ul class="list-reset" v-cloak>
                 <li v-if="result.isbn"
                     class="flex w-2/3 mt-12 shadow-md p-6 rounded"
                     v-for="result in searchResults">
@@ -119,7 +139,7 @@
             </ul>
 
 
-            <ul class="list-reset"
+            <ul class="list-reset" v-cloak
                 v-if="showEditions">
                 <li v-if="result.isbn"
                     class="flex w-2/3 mt-12 shadow-md p-4"
@@ -149,80 +169,6 @@
                 </li>
             </ul>
 
-
-
-
-            <form th:object="${book}"
-                  class=""
-                  action=""
-                  method="post"
-                  v-show="showAddBookForm">
-            <!-- Title -->
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-6" th:for="title">
-                        Title
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
-                           type="text" th:field="*{title}"
-                           tabindex="2" />
-                    <div th:errors="*{title}" class="text-red text-sm mb-2"></div>
-
-            <!-- Author -->
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-6" th:for="author">
-                        Author
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
-                           type="text" th:field="*{author}" tabindex="3"/>
-                    <div th:errors="*{author}" class="text-red text-sm mb-2"></div>
-
-            <!--Flex row -->
-                <div class="flex">
-
-                <!-- ISBN -->
-                    <div class="w-1/2 mr-8">
-                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn">
-                            ISBN
-                        </label>
-                        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn}" tabindex="4"/>
-                        <div th:errors="*{isbn}" class="text-red text-sm mb-2"></div>
-                    </div>
-
-
-
-            <!-- Page Count -->
-                <div class="w-1/2 mr-8">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="pageCount">
-                        Pages
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" tabindex="5"/>
-                    <div th:errors="*{pageCount}" class="text-red text-sm mb-2"></div>
-                </div>
-
-            <!-- Status -->
-                <div class="w-1/2">
-                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="status">
-                        Status
-                    </label>
-                    <div class="relative">
-                        <select th:field="*{status}"
-                                class="relative block appearance-none w-full bg-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange"
-                        tabindex="6">
-                            <option th:each="bookStatus : ${bookStatuses}"
-                                    th:text="${bookStatus.name}"
-                                    th:value="${bookStatus}"
-                                    class="p-4"></option>
-                        </select>
-                        <div class="pointer-events-none absolute pin-y pin-r flex items-center px-3 text-grey-darker">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                    </div>
-
-                    <div th:errors="*{status}" class="text-red text-sm mb-2 mt-4"></div>
-                </div>
-                </div>
-
-
-                <input class="bg-orange hover:bg-orange-dark text-white py-3 px-4 rounded font-bold float-right mt-5 text-xl shadow hover:shadow-md" type="submit" value="Add Book" tabindex="7" />
-            </form>
         </div>
     </div>
     </div>
