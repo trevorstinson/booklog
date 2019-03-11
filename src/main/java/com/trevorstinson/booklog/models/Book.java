@@ -23,6 +23,7 @@ public class Book {
     @Size(min=1, max=75)
     private String author;
 
+    @NotNull
     private Integer pageCount;
 
     @Size(min=10, max=13)

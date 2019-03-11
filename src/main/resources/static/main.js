@@ -29,7 +29,7 @@ let app = new Vue({
         },
 //        injectBookData() {
 //            axios
-//                .get("https://openlibrary.org/api/books?bibkeys=ISBN:"0201558025,LCCN:93005405&format=json")
+//                .get("https://openlibrary.org/api/books?bibkeys=ISBN:" + "&format=json")
 //
 //
 //        }

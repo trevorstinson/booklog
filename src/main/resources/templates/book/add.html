@@ -40,7 +40,7 @@
                       action=""
                       method="post"
                       v-show="showAddBookForm"
-                        v-cloak>
+                        >
                     <!-- Title -->
                     <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-6" th:for="title">
                         Title
@@ -111,7 +111,7 @@
 
             <ul class="list-reset" v-cloak>
                 <li v-if="result.isbn"
-                    class="flex w-2/3 mt-12 shadow-md p-6 rounded"
+                    class="flex flex-row-reverse w-2/3 mt-12 shadow-md p-6 rounded"
                     v-for="result in searchResults">
 
                     <img v-if="result.isbn"
@@ -120,7 +120,7 @@
                          class="h-32 w-auto"
                     />
 
-                    <div class="flex-1 ml-6 flex flex-col justify-between">
+                    <div class="flex-1 mr-6 flex flex-col justify-between">
                         <div>
                             <h2 class="text-xl font-normal"
                                 v-text="result.title"></h2>
@@ -129,45 +129,73 @@
                                 v-text="result.author_name[0]"></h3>
                         </div>
                         <div>
-                            <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded"
-                                    @click="injectBookData">Add Book</button>
-                            <button class="text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange"
-                                    >Editions</button>
+                            <form class="mt-2 " action="" method="post" th:object="${book}">
+                                <input type="hidden" th:field="*{title}"
+                                       v-if="result.title"
+                                       :value="result.title">
+                                <input type="hidden" th:field="*{author}"
+                                       v-if="result.author_name"
+                                       :value="result.author_name[0]">
+                                <input type="hidden" th:field="*{isbn}"
+                                       v-if="result.isbn"
+                                       :value="result.isbn[0]">
+                                <!--<div class="relative inline-block">-->
+                                    <!--<select th:field="*{status}"-->
+                                            <!--class="relative appearance-none bg-grey-lighter text-grey-darker py-2 px-3 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange"-->
+                                            <!--tabindex="6">-->
+                                        <!--<option th:each="bookStatus : ${bookStatuses}"-->
+                                                <!--th:text="${bookStatus.name}"-->
+                                                <!--th:value="${bookStatus}"-->
+                                                <!--class="p-4"></option>-->
+                                    <!--</select>-->
+                                    <!--<div class="pointer-events-none absolute pin-y pin-r flex items-center px-3 text-grey-darker">-->
+                                        <!--<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded">
+                                    Add Book
+                                </button>
+                            </form>
+                            <!--<button class="text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange"-->
+                                    <!--&gt;Editions</button>-->
                         </div>
                     </div>
+
+
                 </li>
             </ul>
 
 
-            <ul class="list-reset" v-cloak
-                v-if="showEditions">
-                <li v-if="result.isbn"
-                    class="flex w-2/3 mt-12 shadow-md p-4"
-                    v-for="result in searchResults">
+            <!--<ul class="list-reset" v-cloak-->
+                <!--v-if="showEditions">-->
+                <!--<li v-if="result.isbn"-->
+                    <!--class="flex w-2/3 mt-12 shadow-md p-4"-->
+                    <!--v-for="result in searchResults">-->
 
-                    <img v-if="result.isbn"
-                         :src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-M.jpg'"
-                         alt="book cover"
-                         class="h-32 w-auto"
-                    />
+                    <!--<img v-if="result.isbn"-->
+                         <!--:src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-M.jpg'"-->
+                         <!--alt="book cover"-->
+                         <!--class="h-32 w-auto"-->
+                    <!--/>-->
 
-                    <div class="flex-1 ml-8 flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-xl font-normal"
-                                v-text="result.title"></h2>
-                            <h3 class="text-base text-grey-darker font-thin mt-2"
-                                v-if="result.author_name"
-                                v-text="result.author_name[0]"></h3>
-                        </div>
-                        <div>
-                            <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded"
-                                    @click="injectBookData">Add Book</button>
-                            <button class="text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange"
-                                    @click="viewEditions">Editions</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                    <!--<div class="flex-1 ml-8 flex flex-col justify-between">-->
+                        <!--<div>-->
+                            <!--<h2 class="text-xl font-normal"-->
+                                <!--v-text="result.title"></h2>-->
+                            <!--<h3 class="text-base text-grey-darker font-thin mt-2"-->
+                                <!--v-if="result.author_name"-->
+                                <!--v-text="result.author_name[0]"></h3>-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded"-->
+                                    <!--@click="injectBookData">Add Book</button>-->
+                            <!--<button class="text-orange hover:bg-orange hover:text-white font-bold py-2 px-3 rounded border border-orange"-->
+                                    <!--@click="viewEditions">Editions</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
 
         </div>
     </div>
