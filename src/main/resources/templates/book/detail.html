@@ -7,9 +7,6 @@
 
 <div class="w-3/4 p-16">
 
-    <!--<div class="max-w-lg">-->
-
-
         <div th:object="${book}" class="flex">
 
             <div class="max-w-sm mr-16">
@@ -19,23 +16,22 @@
             <a th:text="*{author}"
                class="block no-underline text-2xl text-grey-darker"></a>
 
-
             <p class="mt-8 leading-normal">Here is the novel that will be forever considered a triumph of imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family - and would bring to fruition humankind's most ancient and unattainable dream.</p>
 
-            <a th:href="'edit/' + ${book.id}"
-               class="inline-block text-center bg-orange hover:bg-orange-dark text-white py-3 px-6 rounded font-bold no-underline mt-12 shadow"
-                >Reading Now</a>
-
-            <table class="border-collapse mt-16 uppercase">
+            <table class="border-collapse mt-16">
+                <tr class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm">Status</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl capitalize" th:text="*{status.name}"></td>
+                </tr>
                 <tr th:unless="*{pageCount == ''}"
-                    class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark text-sm">Pages</th>
-                    <td class="p-5 pl-0 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>
+                    class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm">Pages</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>
                 </tr>
                 <tr th:unless="*{isbn == ''}"
-                    class="border-t border-grey-light">
-                    <th class="p-5 text-grey-dark text-sm">ISBN</th>
-                    <td class="p-5 pl-0 text-grey-darkest" th:text="*{isbn}"></td>
+                    class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm">ISBN</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{isbn}"></td>
                 </tr>
             </table>
 
@@ -60,8 +56,6 @@
             </div>
 
         </div>
-
-    <!--</div>-->
 
 </div>
 
