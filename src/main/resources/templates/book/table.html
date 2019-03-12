@@ -38,8 +38,10 @@
                 </td>
                 <td class="py-5 px-6 text-right">
                     <a th:href="'remove/' + ${book.id}"
-                       class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline">Remove</a>
-                    <!--<a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-grey-darker text-grey-darker hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-grey-darker mr-1">Edit</a>-->
+                       class="hover:bg-red text-grey-dark hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline">Remove</a>
+
+                    <a th:href="${book.id} + '/edit'"
+                       class="py-2 px-3 text-center text-xs font-bold no-underline text-grey-dark border-grey-dark hover:text-orange hover:bg-white hover:border-orange border rounded">Edit</a>
 
                     <!--<a th:href="'remove/' + ${book.id}" class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline mr-2">Remove</a>-->
                     <!--<a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-green text-green hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-green ml-2">Edit</a>-->
