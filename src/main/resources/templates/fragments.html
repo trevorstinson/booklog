@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600" rel="stylesheet">
     <title th:text="${pageTitle}">Booklog</title>
     <style>
@@ -15,23 +15,29 @@
         [v-cloak] {
             display: none;
         }
+
     </style>
 </head>
 <body>
 
 <header th:fragment="header" class="w-1/4 flex flex-col bg-orange-dark text-white shadow-md">
-        <h1 class="w-full text-right text-4xl font-normal tracking-wide">
-            <a href="/" class="inline-block w-full px-16 pt-16 pb-4 text-white hover:bg-orange no-underline"
-            >Booklog</a></h1>
-        <nav class="">
-            <ul class="flex flex-col list-reset ">
-                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/list">Library</a></li>
+    <h1 class="w-full text-right text-4xl font-normal tracking-wide">
+        <a href="/" class="inline-block w-full px-16 pt-16 pb-4 text-white hover:bg-orange no-underline"
+        >Booklog</a></h1>
+    <nav class="">
+        <ul class="flex flex-col list-reset ">
+            <li class="block text-right"><a
+                    class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl"
+                    href="/book/list">Library</a></li>
 
-                <li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/add">Add</a></li></li>
+            <li class="block text-right"><a
+                    class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl"
+                    href="/book/add">Add</a></li>
+            </li>
 
-                <!--<li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/add">Search</a></li></li>-->
-            </ul>
-        </nav>
+            <!--<li class="block text-right"><a class="w-full inline-block no-underline hover:bg-orange text-white px-16 py-4 uppercase text-xl" href="/book/add">Search</a></li></li>-->
+        </ul>
+    </nav>
 </header>
 
 <h1 th:fragment="pageTitle" class="text-4xl font-normal capitalize tracking-wide mb-4" th:text="${pageTitle}"></h1>

@@ -8,19 +8,20 @@
 <div id="root" class="container mx-auto my-4 p-4 flex-1">
     <h1 th:replace="fragments :: pageTitle"></h1>
     <form action="">
-    <input v-model="bookQuery" placeholder="Ender's Game" @keyup.space="searchBook" />
-    <input type="button" value="Search" @click="searchBook" />
+        <input v-model="bookQuery" placeholder="Ender's Game" @keyup.space="searchBook"/>
+        <input type="button" value="Search" @click="searchBook"/>
 
-    <p>searching for: <span v-text="bookQuery"></span></p>
+        <p>searching for: <span v-text="bookQuery"></span></p>
 
-    <ul v-for="result in searchResults">
-        <li>
-            <img v-if="result.isbn" :src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-S.jpg'" alt="book cover" />
-            <p v-text="result.title"></p>
-            <p v-if="result.author_name" v-text="result.author_name[0]"></p>
-            <a href="">View Details</a>
-        </li>
-    </ul>
+        <ul v-for="result in searchResults">
+            <li>
+                <img v-if="result.isbn" :src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-S.jpg'"
+                     alt="book cover"/>
+                <p v-text="result.title"></p>
+                <p v-if="result.author_name" v-text="result.author_name[0]"></p>
+                <a href="">View Details</a>
+            </li>
+        </ul>
 
 </div>
 
