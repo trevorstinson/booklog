@@ -3,7 +3,7 @@ package com.trevorstinson.booklog.models;
 public enum BookStatus {
 
     INTERESTED ("Interested"),
-    READING ("Reading Now"),
+    READING ("Reading"),
     FINISHED ("Finished"),
     INACTIVE  ("Inactive");
 

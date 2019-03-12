@@ -66,7 +66,11 @@
                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4 focus:outline-none focus:border-orange" th:for="isbn">
                                 ISBN
                             </label>
-                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{isbn}" tabindex="4"/>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                                   type="text"
+                                   th:field="*{isbn}"
+                                   tabindex="4"
+                                    />
                             <div th:errors="*{isbn}" class="text-red text-sm mb-2"></div>
                         </div>
 
@@ -77,7 +81,7 @@
                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4" th:for="pageCount">
                                 Pages
                             </label>
-                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" tabindex="5"/>
+                            <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange" type="text" th:field="*{pageCount}" tabindex="5" />
                             <div th:errors="*{pageCount}" class="text-red text-sm mb-2"></div>
                         </div>
 
@@ -117,7 +121,7 @@
                     <img v-if="result.isbn"
                          :src="'http://covers.openlibrary.org/b/isbn/' + result.isbn[0] + '-M.jpg'"
                          alt="book cover"
-                         class="h-32 w-auto"
+                         class="h-32 w-24"
                     />
 
                     <div class="flex-1 mr-6 flex flex-col justify-between">
@@ -153,7 +157,21 @@
                                     <!--</div>-->
                                 <!--</div>-->
 
-                                <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 rounded">
+                                <div class="relative inline-block">
+                                    <select th:field="*{status}"
+                                            class="relative appearance-none bg-grey-lighter text-grey-darker py-2 pl-3 pr-8 rounded border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                                            >
+                                        <option th:each="bookStatus : ${bookStatuses}"
+                                                th:text="${bookStatus.name}"
+                                                th:value="${bookStatus}"
+                                                class="p-4"></option>
+                                    </select>
+                                    <div class="pointer-events-none absolute pin-y pin-r flex items-center px-3 text-grey-darker">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+
+                                <button class="bg-orange hover:bg-orange-dark text-white font-bold py-2 px-3 ml-1 rounded border-b-2 border-orange hover:border-orange-dark focus:border-orange-dark focus:outline-none">
                                     Add Book
                                 </button>
                             </form>
