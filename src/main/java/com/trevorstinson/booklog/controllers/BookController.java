@@ -75,6 +75,74 @@ public class BookController {
         return "redirect:/book/list";
     }
 
+
+
+//
+//    // Path: /book/add
+//    @GetMapping(value = "add")
+//    public String displayAddBookForm(Model model) {
+//
+//        model.addAttribute(new Book());
+//        model.addAttribute("bookStatuses", BookStatus.values());
+//        model.addAttribute("pageTitle", "Add Book");
+//
+//        return "book/add";
+//    }
+//
+//    @PostMapping(value = "add")
+//    public String processAddBookForm(Model model,
+//                                     @ModelAttribute @Valid Book book,
+//                                     Errors errors) {
+//
+//        model.addAttribute("bookStatuses", BookStatus.values());
+//        model.addAttribute("pageTitle", "Add Book");
+//
+//        if (errors.hasErrors()) {
+//            return "book/add";
+//        }
+//
+//        bookDao.save(book);
+//        model.addAttribute("bookId", book.getId());
+//
+////        return "redirect:book/{bookId}";
+//        return "redirect:/book/list";
+//    }
+//
+//
+
+
+
+    @GetMapping(value = "/{bookId}/edit")
+    public String editBook(Model model, @PathVariable int bookId) {
+
+        Book book = bookDao.findById(bookId).orElse(null);
+        model.addAttribute("book", book);
+        model.addAttribute("bookStatuses", BookStatus.values());
+        model.addAttribute("pageTitle", "edit book");
+
+
+        return "book/edit";
+    }
+
+//    @PostMapping(value = "edit")
+//    public String processEditBookForm(Model model,
+//                                     @ModelAttribute @Valid Book book,
+//                                     Errors errors) {
+//
+//        model.addAttribute("bookStatuses", BookStatus.values());
+//        model.addAttribute("pageTitle", "Add Book");
+//
+//        if (errors.hasErrors()) {
+//            return "book/add";
+//        }
+//
+//        bookDao.save(book);
+//        model.addAttribute("bookId", book.getId());
+//
+//        return "redirect:book/{bookId}";
+////        return "redirect:/book/list";
+//    }
+
     @GetMapping(value = "/remove/{bookId}")
     public String removeBook(Model model, @PathVariable int bookId) {
 
