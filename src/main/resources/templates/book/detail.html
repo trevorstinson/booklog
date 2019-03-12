@@ -54,9 +54,9 @@
                     <p class="m-0 text-xs font-thin" th:text="*{author}"></p>
                 </div>
 
-                <a th:href="'edit/' + ${book.id}" class="block text-center bg-white hover:bg-green text-green hover:text-white py-3 rounded text-sm font-bold no-underline border border-green mt-4">Edit</a>
+                <a th:href="'edit/' + ${book.id}" class="block text-center text-sm font-bold no-underline py-3 mt-4 text-grey-dark border-grey-dark hover:text-orange hover:border-orange border rounded">Edit</a>
 
-                <a th:href="'remove/' + ${book.id}" class="block text-center hover:bg-red text-red hover:text-white py-3 rounded text-sm font-bold hover:no-underline mt-2">Remove</a>
+                <a th:href="'remove/' + ${book.id}" class="block text-center hover:bg-red text-grey-dark hover:text-white py-3 rounded text-sm font-bold hover:no-underline mt-2">Remove</a>
             </div>
 
         </div>
