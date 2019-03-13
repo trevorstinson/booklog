@@ -18,6 +18,7 @@
             <tr class="bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                 <th class="py-4 px-6 ">Title</th>
                 <th class="py-4 px-6 ">Author</th>
+                <th class="py-4 px-6">Status</th>
                 <th class="py-4 px-6 text-right">Pages</th>
                 <th class="py-4 px-6 text-right">Actions</th>
             </tr>
@@ -33,11 +34,17 @@
 
                        th:text="${book.author}"></a>
                 </td>
+                <td>
+                    <a class="py-5 px-6 no-underline text-black block"
+
+                       th:text="${book.status.name}"></a>
+                </td>
                 <td class="py-5 px-6 no-underline text-black block text-right"
                     th:text="${book.pageCount}">
                 </td>
                 <td class="py-5 px-6 text-right">
                     <a th:href="'remove/' + ${book.id}"
+<<<<<<< HEAD
                        class="hover:bg-red text-grey-dark hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline">Remove</a>
 
                     <a th:href="${book.id} + '/edit'"
@@ -46,12 +53,16 @@
                     <!--<a th:href="'remove/' + ${book.id}" class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline mr-2">Remove</a>-->
                     <!--<a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-green text-green hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-green ml-2">Edit</a>-->
                     <!--<a th:href="${book.id}" class="bg-white hover:bg-blue text-blue hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-blue">View</a>-->
+=======
+                       class="hover:bg-red text-red hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline">Remove</a>
+                    <!--<a th:href="'edit/' + ${book.id}" class="bg-white hover:bg-grey-darker text-grey-darker hover:text-white py-2 px-3 rounded text-xs font-bold no-underline border border-grey-darker mr-1">Edit</a>-->
+>>>>>>> master
                 </td>
             </tr>
             </tbody>
             <tfooter>
                 <tr class="border-grey-light">
-                    <td class="py-4 px-6 text-right font-bold " colspan="3">
+                    <td class="py-4 px-6 text-right font-bold " colspan="4">
                         <span class="uppercase text-sm text-grey-dark mr-1">Total Pages</span> <span
                             th:text="${pageTotal}" class="text-2xl"></span></td>
                     <td class="py-4 px-6 text-right">
