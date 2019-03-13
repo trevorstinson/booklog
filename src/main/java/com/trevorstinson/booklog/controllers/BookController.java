@@ -125,23 +125,28 @@ public class BookController {
     }
 
     @PostMapping(value = "{bookId}/edit")
-    public String processEditBookForm(Model model, @ModelAttribute @Valid Book book,
-                                     @PathVariable int bookId,
-                                     Errors errors) {
-
-//        Book book = bookDao.findById(bookId).orElse(null);
-        model.addAttribute("book", book);
-        model.addAttribute("bookStatuses", BookStatus.values());
-        model.addAttribute("pageTitle", "Edit Book");
+    public String processEditBookForm(Model model,
+                                      @ModelAttribute @Valid Book updatedBook,
+                                      Errors errors,
+                                      @PathVariable int bookId) {
 
         if (errors.hasErrors()) {
             return "book/edit";
         }
 
+        Book book = bookDao.findById(bookId).orElse(null);
+
+        book.setTitle(updatedBook.getTitle());
+        book.setAuthor(updatedBook.getAuthor());
+        book.setIsbn(updatedBook.getIsbn());
+        book.setPageCount(updatedBook.getPageCount());
+        book.setStatus(updatedBook.getStatus());
+
         bookDao.save(book);
+
         model.addAttribute("bookId", book.getId());
 
-        return "redirect:book/{bookId}";
+        return "redirect:/book/{bookId}";
 //        return "redirect:/book/list";
     }
 
