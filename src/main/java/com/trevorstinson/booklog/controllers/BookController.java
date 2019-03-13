@@ -113,7 +113,7 @@ public class BookController {
 
 
     @GetMapping(value = "{bookId}/edit")
-    public String editBook(Model model, @PathVariable int bookId) {
+    public String showEditBookForm(Model model, @PathVariable int bookId) {
 
         Book book = bookDao.findById(bookId).orElse(null);
         model.addAttribute("book", book);
@@ -138,7 +138,7 @@ public class BookController {
             return "book/edit";
         }
 
-        bookDao.update(book);
+        bookDao.save(book);
         model.addAttribute("bookId", book.getId());
 
         return "redirect:book/{bookId}";
