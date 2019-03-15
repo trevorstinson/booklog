@@ -21,6 +21,8 @@ public interface BookDao extends CrudRepository<Book, Integer> {
 
     Iterable<Book> findByStatus(BookStatus status);
 
+    Iterable<Book> findByStatusNot(BookStatus status);
+
     Iterable<Book> findByIsbn(String isbn);
 
     Iterable<Book> findByDateStarted(LocalDate dateStarted);

@@ -26,20 +26,20 @@ public class LibraryController {
     @GetMapping(value = "")
     public String index(Model model) {
 
-        Iterable<Book> books = bookDao.findAll();
+        Iterable<Book> books = bookDao.findByStatusNot(BookStatus.INACTIVE);
 
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Library: All Books");
 
-//        Integer pageTotal = 0;
-//
-//        for (Book book : books) {
-//            pageTotal = pageTotal + book.getPageCount();
-//        }
+        Integer pageTotal = 0;
 
-//        model.addAttribute("pageTotal", pageTotal);
+        for (Book book : books) {
+            pageTotal = pageTotal + book.getPageCount();
+        }
 
-        return "library/active";
+        model.addAttribute("pageTotal", pageTotal);
+
+        return "library/index";
     }
 
     // Path: /library/interested
