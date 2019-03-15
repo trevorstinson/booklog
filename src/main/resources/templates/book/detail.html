@@ -23,17 +23,22 @@
 
             <table class="border-collapse mt-16">
                 <tr class="border-t border-grey-light align-baseline">
-                    <th class="pr-5 pl-8 text-grey-dark text-sm">Status</th>
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Status</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl capitalize" th:text="*{status.name}"></td>
+                </tr>
+                <tr
+                    class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Dates Read</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl">3/2/19 – 4/3/19</td>
                 </tr>
                 <tr th:unless="*{pageCount == ''}"
                     class="border-t border-grey-light align-baseline">
-                    <th class="pr-5 pl-8 text-grey-dark text-sm">Pages</th>
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Pages</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>
                 </tr>
                 <tr th:unless="*{isbn == ''}"
                     class="border-t border-grey-light align-baseline">
-                    <th class="pr-5 pl-8 text-grey-dark text-sm">ISBN</th>
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">ISBN</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{isbn}"></td>
                 </tr>
             </table>
