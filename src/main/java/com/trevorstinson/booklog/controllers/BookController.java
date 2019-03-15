@@ -117,9 +117,4 @@ public class BookController {
 
         return "redirect:/library";
     }
-
-    @GetMapping(value = "search")
-    public String bookSearch(Model model) {
-        return "book/search";
-    }
 }
