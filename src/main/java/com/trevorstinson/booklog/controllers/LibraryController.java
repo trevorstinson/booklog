@@ -46,7 +46,7 @@ public class LibraryController {
     @GetMapping(value = "finished")
     public String listFinishedBooks(Model model) {
 
-        Iterable<Book> books = bookDao.findAll();
+        Iterable<Book> books = bookDao.findByStatus(BookStatus.FINISHED);
 
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Library: Finished");
