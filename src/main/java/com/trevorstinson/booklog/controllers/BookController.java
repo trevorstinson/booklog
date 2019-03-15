@@ -141,6 +141,8 @@ public class BookController {
         book.setIsbn(updatedBook.getIsbn());
         book.setPageCount(updatedBook.getPageCount());
         book.setStatus(updatedBook.getStatus());
+        book.setDateStarted(updatedBook.getDateStarted());
+        book.setDateFinished(updatedBook.getDateFinished());
 
         bookDao.save(book);
 

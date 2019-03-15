@@ -1,12 +1,14 @@
 package com.trevorstinson.booklog.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 public class Book {
@@ -32,7 +34,11 @@ public class Book {
     @NotNull
     private BookStatus status;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateStarted;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateFinished;
 
 
     public Book() {}
@@ -94,5 +100,21 @@ public class Book {
 
     public void setStatus(BookStatus status) {
         this.status = status;
+    }
+
+    public LocalDate getDateStarted() {
+        return dateStarted;
+    }
+
+    public void setDateStarted(LocalDate dateStarted) {
+        this.dateStarted = dateStarted;
+    }
+
+    public LocalDate getDateFinished() {
+        return dateFinished;
+    }
+
+    public void setDateFinished(LocalDate dateFinished) {
+        this.dateFinished = dateFinished;
     }
 }
