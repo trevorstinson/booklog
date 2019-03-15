@@ -31,15 +31,15 @@ public class LibraryController {
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Library: All Books");
 
-        Integer pageTotal = 0;
+//        Integer pageTotal = 0;
+//
+//        for (Book book : books) {
+//            pageTotal = pageTotal + book.getPageCount();
+//        }
 
-        for (Book book : books) {
-            pageTotal = pageTotal + book.getPageCount();
-        }
+//        model.addAttribute("pageTotal", pageTotal);
 
-        model.addAttribute("pageTotal", pageTotal);
-
-        return "library/index";
+        return "library/active";
     }
 
     // Path: /library/interested
