@@ -30,7 +30,9 @@ public class Book {
     private String isbn;
 
     @NotNull
-    public BookStatus status;
+    private BookStatus status;
+
+
 
 
     public Book() {}
