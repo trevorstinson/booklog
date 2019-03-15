@@ -30,7 +30,7 @@ public class BookController {
 //        model.addAttribute("pageTitle", "Booklog");
 
 //        return "book/index";
-        return "redirect:book/list";
+        return "redirect:library";
     }
 
     // Path /book/{id}
@@ -72,7 +72,7 @@ public class BookController {
         model.addAttribute("bookId", book.getId());
 
 //        return "redirect:book/{bookId}";
-        return "redirect:/book/list";
+        return "redirect:/library";
     }
 
 
@@ -105,7 +105,7 @@ public class BookController {
 //        model.addAttribute("bookId", book.getId());
 //
 ////        return "redirect:book/{bookId}";
-//        return "redirect:/book/list";
+//        return "redirect:/library";
 //    }
 //
 //
@@ -149,7 +149,7 @@ public class BookController {
         model.addAttribute("bookId", book.getId());
 
         return "redirect:/book/{bookId}";
-//        return "redirect:/book/list";
+//        return "redirect:/library";
     }
 
     @GetMapping(value = "/remove/{bookId}")
@@ -159,27 +159,7 @@ public class BookController {
 
         bookDao.delete(book);
 
-        return "redirect:/book/list";
-    }
-
-    // Path: /book/list
-    @GetMapping(value = "list")
-    public String showBookList(Model model) {
-
-        Iterable<Book> books = bookDao.findAll();
-
-        model.addAttribute("books", books);
-        model.addAttribute("pageTitle", "All Books");
-
-        Integer pageTotal = 0;
-
-        for (Book book : books) {
-            pageTotal = pageTotal + book.getPageCount();
-        }
-
-        model.addAttribute("pageTotal", pageTotal);
-
-        return "book/table";
+        return "redirect:/library";
     }
 
     @GetMapping(value = "search")
