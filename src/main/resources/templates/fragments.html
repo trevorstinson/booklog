@@ -17,6 +17,8 @@
         }
 
 
+
+
     </style>
 </head>
 <body>
@@ -53,7 +55,8 @@
     </nav>
 </header>
 
-<h1 th:fragment="pageTitle" class="inline-block text-4xl font-normal capitalize tracking-wide mt-3 mb-6" th:text="${pageTitle}"></h1>
+<h1 th:fragment="pageTitle" class="inline-block text-4xl font-normal capitalize tracking-wide mt-3 mb-6"
+    th:text="${pageTitle}"></h1>
 
 <footer class="bg-grey-darkest text-grey-lightest p-12">
     <div class="container mx-auto">
@@ -64,14 +67,6 @@
 
     </div>
 </footer>
-
-<div th:fragment="scripts">
-    <script src="https://unpkg.com/vue@2.6.2/dist/vue.js"></script>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <script src="/main.js"></script>
-</div>
 
 </body>
 </html>
