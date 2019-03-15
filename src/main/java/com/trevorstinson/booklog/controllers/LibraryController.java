@@ -42,7 +42,47 @@ public class LibraryController {
         return "library/index";
     }
 
-    // Path: /library/read
+    // Path: /library/interested
+    @GetMapping(value = "interested")
+    public String listInterestedBooks(Model model) {
+
+        Iterable<Book> books = bookDao.findByStatus(BookStatus.INTERESTED);
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Library: Interested");
+
+        Integer pageTotal = 0;
+
+        for (Book book : books) {
+            pageTotal = pageTotal + book.getPageCount();
+        }
+
+        model.addAttribute("pageTotal", pageTotal);
+
+        return "library/index";
+    }
+
+    // Path: /library/reading
+    @GetMapping(value = "reading")
+    public String listReadingBooks(Model model) {
+
+        Iterable<Book> books = bookDao.findByStatus(BookStatus.READING);
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Library: Reading");
+
+        Integer pageTotal = 0;
+
+        for (Book book : books) {
+            pageTotal = pageTotal + book.getPageCount();
+        }
+
+        model.addAttribute("pageTotal", pageTotal);
+
+        return "library/index";
+    }
+
+    // Path: /library/finished
     @GetMapping(value = "finished")
     public String listFinishedBooks(Model model) {
 
@@ -50,6 +90,26 @@ public class LibraryController {
 
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Library: Finished");
+
+        Integer pageTotal = 0;
+
+        for (Book book : books) {
+            pageTotal = pageTotal + book.getPageCount();
+        }
+
+        model.addAttribute("pageTotal", pageTotal);
+
+        return "library/index";
+    }
+
+    // Path: /library/inactive
+    @GetMapping(value = "inactive")
+    public String listInactiveBooks(Model model) {
+
+        Iterable<Book> books = bookDao.findByStatus(BookStatus.INACTIVE);
+
+        model.addAttribute("books", books);
+        model.addAttribute("pageTitle", "Library: Inactive");
 
         Integer pageTotal = 0;
 
