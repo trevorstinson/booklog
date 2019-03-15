@@ -3,12 +3,12 @@ package com.trevorstinson.booklog.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -39,6 +39,10 @@ public class Book {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateFinished;
+
+    @OneToMany
+    @JoinColumn(name = "readthrough_id")
+    private List<Readthrough> readthroughs = new ArrayList<>();
 
 
     public Book() {}

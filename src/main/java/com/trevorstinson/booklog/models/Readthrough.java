@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class Readthrough {
@@ -17,6 +18,9 @@ public class Readthrough {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateFinished;
+
+    @ManyToOne
+    private Book book;
 
 
 
