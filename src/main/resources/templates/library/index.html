@@ -8,6 +8,13 @@
 <div class="w-3/4 p-16">
     <h1 th:replace="fragments :: pageTitle"></h1>
 
+    <a th:if="${showInactiveLink}"
+       href="/library/inactive"
+       class="float-right text-xs mt-8 mr-6 text-grey-dark font-bold hover:text-orange no-underline hover:underline">
+        Show Inactive Books</a>
+
+
+
     <p th:unless="${books} and ${books.size()}">The shelves are empty. <a href="/book/add"
                                                                           class="no-underline text-orange-dark hover:text-orange">Add
         a book.</a></p>
@@ -44,11 +51,11 @@
                 </td>
                 <td class="py-5 px-6 text-right">
                     <a th:href="'/book/remove/' + ${book.id}"
-
                        class="hover:bg-red text-grey-dark hover:text-white py-2 px-3 rounded text-xs font-bold hover:no-underline">Remove</a>
 
                     <a th:href="'/book/' + ${book.id} + '/edit'"
-                       class="py-2 px-3 text-center text-xs font-bold no-underline text-grey-dark border-grey-dark hover:text-orange hover:bg-white hover:border-orange border rounded">Edit</a>
+                       class="py-2 px-3 text-center text-xs font-bold no-underline text-grey-dark border-grey-dark hover:text-orange hover:bg-white hover:border-orange border rounded"
+                    >Edit</a>
                 </td>
             </tr>
             </tbody>

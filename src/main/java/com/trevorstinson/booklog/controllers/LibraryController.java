@@ -30,6 +30,7 @@ public class LibraryController {
 
         model.addAttribute("books", books);
         model.addAttribute("pageTitle", "Library: All Books");
+        model.addAttribute("showInactiveLink", true);
 
         Integer pageTotal = 0;
 
