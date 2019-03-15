@@ -25,11 +25,6 @@ public class BookController {
     // Path: /book
     @GetMapping(value = "")
     public String index(Model model) {
-
-//        model.addAttribute("books", books);
-//        model.addAttribute("pageTitle", "Booklog");
-
-//        return "book/index";
         return "redirect:library";
     }
 
@@ -71,46 +66,8 @@ public class BookController {
         bookDao.save(book);
         model.addAttribute("bookId", book.getId());
 
-//        return "redirect:book/{bookId}";
         return "redirect:/library";
     }
-
-
-
-//
-//    // Path: /book/add
-//    @GetMapping(value = "add")
-//    public String displayAddBookForm(Model model) {
-//
-//        model.addAttribute(new Book());
-//        model.addAttribute("bookStatuses", BookStatus.values());
-//        model.addAttribute("pageTitle", "Add Book");
-//
-//        return "book/add";
-//    }
-//
-//    @PostMapping(value = "add")
-//    public String processAddBookForm(Model model,
-//                                     @ModelAttribute @Valid Book book,
-//                                     Errors errors) {
-//
-//        model.addAttribute("bookStatuses", BookStatus.values());
-//        model.addAttribute("pageTitle", "Add Book");
-//
-//        if (errors.hasErrors()) {
-//            return "book/add";
-//        }
-//
-//        bookDao.save(book);
-//        model.addAttribute("bookId", book.getId());
-//
-////        return "redirect:book/{bookId}";
-//        return "redirect:/library";
-//    }
-//
-//
-
-
 
     @GetMapping(value = "{bookId}/edit")
     public String showEditBookForm(Model model, @PathVariable int bookId) {
@@ -119,7 +76,6 @@ public class BookController {
         model.addAttribute("book", book);
         model.addAttribute("bookStatuses", BookStatus.values());
         model.addAttribute("pageTitle", "Edit Book");
-
 
         return "book/edit";
     }
@@ -149,14 +105,12 @@ public class BookController {
         model.addAttribute("bookId", book.getId());
 
         return "redirect:/book/{bookId}";
-//        return "redirect:/library";
     }
 
     @GetMapping(value = "/remove/{bookId}")
     public String removeBook(Model model, @PathVariable int bookId) {
 
         Book book = bookDao.findById(bookId).orElse(null);
-
         bookDao.delete(book);
 
         return "redirect:/library";
@@ -164,9 +118,6 @@ public class BookController {
 
     @GetMapping(value = "search")
     public String bookSearch(Model model) {
-
         return "book/search";
-
     }
-
 }
