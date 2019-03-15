@@ -8,16 +8,6 @@ let app = new Vue({
         showAddBookForm: true,
     },
 
-    mounted() {
-        // Make an ajax request
-
-//        axios
-//            .get(
-//                "https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&format=json&jscmd=data"
-//            )
-//            .then(response => (this.books = response.data));
-    },
-
     methods: {
         searchBook() {
             axios
@@ -26,12 +16,6 @@ let app = new Vue({
 
             this.showAddBookForm = false;
 
-        },
-//        injectBookData() {
-//            axios
-//                .get("https://openlibrary.org/api/books?bibkeys=ISBN:" + "&format=json")
-//
-//
-//        }
+        }
     }
 });
