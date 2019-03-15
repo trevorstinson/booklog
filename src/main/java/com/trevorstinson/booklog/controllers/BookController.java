@@ -69,6 +69,7 @@ public class BookController {
         return "redirect:/library";
     }
 
+    // Path: /book/#/edit
     @GetMapping(value = "{bookId}/edit")
     public String showEditBookForm(Model model, @PathVariable int bookId) {
 
@@ -107,6 +108,7 @@ public class BookController {
         return "redirect:/book/{bookId}";
     }
 
+    // book/remove/#
     @GetMapping(value = "/remove/{bookId}")
     public String removeBook(Model model, @PathVariable int bookId) {
 
