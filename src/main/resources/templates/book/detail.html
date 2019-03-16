@@ -21,59 +21,59 @@
                 mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family - and
                 would bring to fruition humankind's most ancient and unattainable dream.</p>
 
-            <table class="w-full border-collapse mt-16">
-                   <!--th:if="*{readthroughs.size()}">-->
-                <thead>
-                    <tr class="bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                        <th class="w-1/2 py-4 px-6 text-grey-dark text-sm">Started</th>
-                        <th class="w-1/2 py-4 px-6 text-grey-dark text-sm">Finished</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <!--<tbody th:each="readthrough : *{readthroughs}">-->
-                    <tr class="text-center border-t border-grey-light align-baseline">
-                        <td class="py-4 text-lg text-grey-darkest">2011-01-01</td>
-                        <td class="py-4 text-lg text-grey-darkest">2011-02-02</td>
-                    </tr>
-                    <!--<tr th:if="*{readthroughs.size()}"-->
-                        <!--class="border-t border-grey-light align-baseline">-->
-                        <!--<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Finished</th>-->
-                        <!--<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"-->
-                            <!--th:text="*{dateFinished}">-->
-                        <!--</td>-->
+            <!--<table class="w-full border-collapse mt-16">-->
+                   <!--&lt;!&ndash;th:if="*{readthroughs.size()}">&ndash;&gt;-->
+                <!--<thead>-->
+                    <!--<tr class="bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">-->
+                        <!--<th class="w-1/2 py-4 px-6 text-grey-dark text-sm">Started</th>-->
+                        <!--<th class="w-1/2 py-4 px-6 text-grey-dark text-sm">Finished</th>-->
                     <!--</tr>-->
-                    <!--<tr th:unless="*{pageCount == ''}"-->
-                        <!--class="border-t border-grey-light align-baseline">-->
-                        <!--<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Pages</th>-->
-                        <!--<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--&lt;!&ndash;<tbody th:each="readthrough : *{readthroughs}">&ndash;&gt;-->
+                    <!--<tr class="text-center border-t border-grey-light align-baseline">-->
+                        <!--<td class="py-4 text-lg text-grey-darkest">2011-01-01</td>-->
+                        <!--<td class="py-4 text-lg text-grey-darkest">2011-02-02</td>-->
                     <!--</tr>-->
-                    <!--<tr th:unless="*{isbn == ''}"-->
-                        <!--class="border-t border-grey-light align-baseline">-->
-                        <!--<th class="pr-5 pl-8 text-grey-dark text-sm text-right">ISBN</th>-->
-                        <!--<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{isbn}"></td>-->
-                    <!--</tr>-->
-                </tbody>
-            </table>
+                    <!--&lt;!&ndash;<tr th:if="*{readthroughs.size()}"&ndash;&gt;-->
+                        <!--&lt;!&ndash;class="border-t border-grey-light align-baseline">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Finished</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"&ndash;&gt;-->
+                            <!--&lt;!&ndash;th:text="*{dateFinished}">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr th:unless="*{pageCount == ''}"&ndash;&gt;-->
+                        <!--&lt;!&ndash;class="border-t border-grey-light align-baseline">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Pages</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{pageCount}"></td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr th:unless="*{isbn == ''}"&ndash;&gt;-->
+                        <!--&lt;!&ndash;class="border-t border-grey-light align-baseline">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th class="pr-5 pl-8 text-grey-dark text-sm text-right">ISBN</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl" th:text="*{isbn}"></td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                <!--</tbody>-->
+            <!--</table>-->
 
             <table class="border-collapse mt-16">
                 <tr class="align-baseline">
                     <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Status</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-xl capitalize" th:text="*{status.name}"></td>
                 </tr>
-                <!--<tr th:if="*{readthroughs.size()}"-->
-                    <!--class="border-t border-grey-light align-baseline">-->
-                    <!--<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Started</th>-->
-                    <!--<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"-->
-                        <!--th:text="*{dateStarted}">-->
-                    <!--</td>-->
-                <!--</tr>-->
-                <!--<tr th:if="*{readthroughs.size()}"-->
-                    <!--class="border-t border-grey-light align-baseline">-->
-                    <!--<th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Finished</th>-->
-                    <!--<td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"-->
-                        <!--th:text="*{dateFinished}">-->
-                    <!--</td>-->
-                <!--</tr>-->
+                <tr th:if="*{dateStarted}"
+                    class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Started</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"
+                        th:text="*{dateStarted}">
+                    </td>
+                </tr>
+                <tr th:if="*{dateFinished}"
+                    class="border-t border-grey-light align-baseline">
+                    <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Finished</th>
+                    <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"
+                        th:text="*{dateFinished}">
+                    </td>
+                </tr>
                 <tr th:unless="*{pageCount == ''}"
                     class="border-t border-grey-light align-baseline">
                     <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Pages</th>
@@ -102,8 +102,8 @@
                 <p class="m-0 text-xs font-thin" th:text="*{author}"></p>
             </div>
 
-            <a th:href="${book.id} + '/edit-dates'"
-               class="block text-center text-sm font-bold no-underline py-3 mt-4 text-grey-dark border-grey-dark hover:text-orange hover:border-orange border rounded">Edit Dates</a>
+            <!--<a th:href="${book.id} + '/edit-dates'"-->
+               <!--class="block text-center text-sm font-bold no-underline py-3 mt-4 text-grey-dark border-grey-dark hover:text-orange hover:border-orange border rounded">Edit Dates</a>-->
 
             <a th:href="${book.id} + '/edit'"
                class="block text-center text-sm font-bold no-underline py-3 mt-4 text-grey-dark border-grey-dark hover:text-orange hover:border-orange border rounded">Edit Book</a>

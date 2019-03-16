@@ -34,15 +34,15 @@ public class Book {
     @NotNull
     private BookStatus status;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private LocalDate dateStarted;
-//
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private LocalDate dateFinished;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateStarted;
 
-    @OneToMany
-    @JoinColumn(name = "book_id")
-    private List<Readthrough> readthroughs = new ArrayList<>();
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateFinished;
+
+//    @OneToMany
+//    @JoinColumn(name = "book_id")
+//    private List<Readthrough> readthroughs = new ArrayList<>();
 
 
     public Book() {}
@@ -106,28 +106,28 @@ public class Book {
         this.status = status;
     }
 
-//    public LocalDate getDateStarted() {
-//        return dateStarted;
-//    }
-//
-//    public void setDateStarted(LocalDate dateStarted) {
-//        this.dateStarted = dateStarted;
-//    }
-//
-//    public LocalDate getDateFinished() {
-//        return dateFinished;
-//    }
-//
-//    public void setDateFinished(LocalDate dateFinished) {
-//        this.dateFinished = dateFinished;
-//    }
-
-
-    public List<Readthrough> getReadthroughs() {
-        return readthroughs;
+    public LocalDate getDateStarted() {
+        return dateStarted;
     }
 
-    public void setReadthroughs(List<Readthrough> readthroughs) {
-        this.readthroughs = readthroughs;
+    public void setDateStarted(LocalDate dateStarted) {
+        this.dateStarted = dateStarted;
     }
+
+    public LocalDate getDateFinished() {
+        return dateFinished;
+    }
+
+    public void setDateFinished(LocalDate dateFinished) {
+        this.dateFinished = dateFinished;
+    }
+
+
+//    public List<Readthrough> getReadthroughs() {
+//        return readthroughs;
+//    }
+//
+//    public void setReadthroughs(List<Readthrough> readthroughs) {
+//        this.readthroughs = readthroughs;
+//    }
 }
