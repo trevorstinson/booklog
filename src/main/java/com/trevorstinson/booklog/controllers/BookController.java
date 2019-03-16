@@ -2,7 +2,9 @@ package com.trevorstinson.booklog.controllers;
 
 import com.trevorstinson.booklog.models.Book;
 import com.trevorstinson.booklog.models.BookStatus;
+import com.trevorstinson.booklog.models.Readthrough;
 import com.trevorstinson.booklog.models.data.BookDao;
+import com.trevorstinson.booklog.models.data.ReadthroughDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ public class BookController {
 
     @Autowired
     private BookDao bookDao;
+
+    @Autowired
+    private ReadthroughDao readthroughDao;
 
     static ArrayList<Book> books = new ArrayList<>();
 
@@ -98,8 +103,8 @@ public class BookController {
         book.setIsbn(updatedBook.getIsbn());
         book.setPageCount(updatedBook.getPageCount());
         book.setStatus(updatedBook.getStatus());
-        book.setDateStarted(updatedBook.getDateStarted());
-        book.setDateFinished(updatedBook.getDateFinished());
+//        book.setDateStarted(updatedBook.getDateStarted());
+//        book.setDateFinished(updatedBook.getDateFinished());
 
         bookDao.save(book);
 

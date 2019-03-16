@@ -26,14 +26,14 @@
                     <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Status</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl capitalize" th:text="*{status.name}"></td>
                 </tr>
-                <tr th:if="*{dateStarted}"
+                <tr th:if="*{readthroughs.size()}"
                     class="border-t border-grey-light align-baseline">
                     <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Started</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"
                         th:text="*{dateStarted}">
                     </td>
                 </tr>
-                <tr th:if="*{dateFinished}"
+                <tr th:if="*{readthroughs.size()}"
                     class="border-t border-grey-light align-baseline">
                     <th class="pr-5 pl-8 text-grey-dark text-sm text-right">Date Finished</th>
                     <td class="py-5 pl-0 pr-8 text-grey-darkest text-2xl"

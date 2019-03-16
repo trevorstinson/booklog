@@ -2,11 +2,13 @@ package com.trevorstinson.booklog.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
+@Entity
 public class Readthrough {
 
     @Id
