@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="flex min-h-screen">
+
+<header th:replace="fragments :: header"></header>
+
+<div class="w-3/4 p-16">
+    <div class="max-w-md">
+
+        <h1 th:replace="fragments :: pageTitle"></h1>
+
+        <!-- addBookForm -->
+        <form th:object="${readthrough}"
+              class="mt-16"
+              action=""
+              method="post"
+        >
+            Flex row
+            <div class="flex">
+
+                <!-- dateStarted -->
+                <div class="w-1/2 mr-8">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4"
+                           th:for="dateStarted">
+                        Date Started
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                           type="date"
+                           th:field="*{dateStarted}"
+                           tabindex="5"
+                           placeholder="2001-01-01"
+                    />
+                    <div th:errors="*{dateStarted}" class="text-red text-sm mb-2"></div>
+                </div>
+                <!-- dateFinished -->
+                <div class="w-1/2">
+                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 mt-4"
+                           th:for="dateFinished">
+                        Date Finished
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker rounded py-3 px-4 mb-3 border-b-2 border-grey-light focus:outline-none focus:border-orange"
+                           type="date"
+                           th:field="*{dateFinished}"
+                           tabindex="5"
+                           placeholder="2001-01-01"
+                    />
+                    <div th:errors="*{dateFinished}" class="text-red text-sm mb-2"></div>
+                </div>
+
+
+            </div>
+
+
+            <input class="bg-orange hover:bg-orange-dark text-white py-3 px-4 rounded font-bold float-right mt-5 text-xl shadow hover:shadow-md"
+                   type="submit" value="Add Book" tabindex="7"/>
+        </form>
+
+
+    </div>
+</div>
+</body>
+</html>

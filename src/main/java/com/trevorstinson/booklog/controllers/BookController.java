@@ -113,6 +113,47 @@ public class BookController {
         return "redirect:/book/{bookId}";
     }
 
+    // Path: /book/#/edit-dates
+    @GetMapping(value = "{bookId}/edit-dates")
+    public String showEditDatesForm(Model model, @PathVariable int bookId) {
+
+//        Book book = bookDao.findById(bookId).orElse(null);
+//        model.addAttribute("book", book);
+        Readthrough readthrough = new Readthrough();
+        model.addAttribute("readthrough", readthrough);
+//        model.addAttribute("bookStatuses", BookStatus.values());
+        model.addAttribute("pageTitle", "Edit Readthrough Dates");
+
+        return "book/edit-dates";
+    }
+
+    @PostMapping(value = "{bookId}/edit-dates")
+    public String processEditDatesForm(Model model,
+                                      @ModelAttribute @Valid Book updatedBook,
+                                      Errors errors,
+                                      @PathVariable int bookId) {
+
+        if (errors.hasErrors()) {
+            return "book/edit-dates";
+        }
+
+        Book book = bookDao.findById(bookId).orElse(null);
+
+        book.setTitle(updatedBook.getTitle());
+        book.setAuthor(updatedBook.getAuthor());
+        book.setIsbn(updatedBook.getIsbn());
+        book.setPageCount(updatedBook.getPageCount());
+        book.setStatus(updatedBook.getStatus());
+//        book.setDateStarted(updatedBook.getDateStarted());
+//        book.setDateFinished(updatedBook.getDateFinished());
+
+        bookDao.save(book);
+
+        model.addAttribute("bookId", book.getId());
+
+        return "redirect:/book/{bookId}";
+    }
+
     // book/remove/#
     @GetMapping(value = "/remove/{bookId}")
     public String removeBook(Model model, @PathVariable int bookId) {
