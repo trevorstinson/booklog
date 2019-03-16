@@ -46,8 +46,10 @@
 
                        th:text="${book.status.name}"></a>
                 </td>
-                <td class="py-5 px-6 no-underline text-black block text-right"
-                    th:text="${book.pageCount}">
+                <td>
+                    <span class="py-5 px-6 no-underline text-black block text-right"
+
+                       th:text="${book.pageCount}"></span>
                 </td>
                 <td class="py-5 px-6 text-right">
                     <a th:href="'/book/remove/' + ${book.id}"
